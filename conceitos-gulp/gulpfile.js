@@ -1,4 +1,6 @@
-function helloTask(callback) {
+const { series, parallel } = require('gulp');
+
+function images(callback) {
 
     callback();
 }
@@ -13,6 +15,16 @@ function css(callback) {
     callback();
 }
 
-exports.default = helloTask;
-exports.js = javascript;
-exports.css = css;
+function clean(callback) {
+
+    callback();
+}
+
+function rename(callback) {
+
+    callback();
+}
+
+exports.build = parallel(javascript, css, images); // Roda todas as tarefas em paralelo
+
+exports.build = series(clean, rename); // Roda uma tarefa, espera concluir e vai para a proxima
