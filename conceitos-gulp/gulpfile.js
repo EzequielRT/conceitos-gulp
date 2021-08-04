@@ -1,36 +1,10 @@
-const { series, parallel } = require('gulp');
+const { src, dest } = require('gulp');
+const rename = require('gulp-rename');
 
-function images(callback) {
+exports.default = function () {
 
-    callback();
+    return src('./src/js/**/*.js')
+        .pipe(rename({extname:'.min.js'}))
+        .pipe(dest('./dist'));
+
 }
-
-function javascript(callback) {
-
-    callback();
-}
-
-function css(callback) {
-
-    callback();
-}
-
-function clean(callback) {
-
-    callback();
-}
-
-function rename(callback) {
-
-    callback();
-}
-
-exports.build = series(
-    clean,
-    parallel(
-        javascript,
-        css,
-        images
-    ),
-    rename
-);
