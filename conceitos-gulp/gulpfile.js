@@ -5,6 +5,7 @@ const minifyCSS = require('gulp-uglifycss');
 const minifyIMG = require('gulp-image');
 const sass = require('gulp-sass')(require('sass'));
 const babel = require('gulp-babel');
+const cssimport = require("gulp-cssimport");
 
 function javascript() {
 
@@ -19,6 +20,7 @@ function javascript() {
 function css() {
 
     return src('src/css/*.css')
+        .pipe(cssimport())
         .pipe(minifyCSS({'maxLineLen':80, 'uglyComments': true}))
         .pipe(rename({extname:'.min.css'}))
         .pipe(dest('dist/assets/css'));
