@@ -1,7 +1,3 @@
-let nome = "Ezequiel";
-
-function fazerAlgo(u) {
-    if(u == 'algo') {
-        fazer();
-    }
-}
+const teste = (nome)=>{
+    return `Oi, ${nome}`;
+};

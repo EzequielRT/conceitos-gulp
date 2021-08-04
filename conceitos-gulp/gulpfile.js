@@ -4,10 +4,12 @@ const minifyJS = require('gulp-uglify');
 const minifyCSS = require('gulp-uglifycss');
 const minifyIMG = require('gulp-image');
 const sass = require('gulp-sass')(require('sass'));
+const babel = require('gulp-babel');
 
 function javascript() {
 
     return src('src/js/*.js')
+        .pipe(babel({presets: ['@babel/env']}))
         .pipe(minifyJS())
         .pipe(rename({extname:'.min.js'}))
         .pipe(dest('dist/assets/js'));
@@ -27,12 +29,10 @@ function convertSass() {
     return src('src/css/*.scss')
         .pipe(sass())
         .pipe(sass({outputStyle:'compressed'}))
-        .pipe(rename({extname:'.min.css'}))
         .pipe(dest('dist/assets/css'));
 }
 
 function optimizeImage() {
-
     return src('src/images/*.jpg')
         .pipe(minifyIMG())
         .pipe(dest('dist/assets/image'));
