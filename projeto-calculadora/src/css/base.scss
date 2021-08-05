@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    background-color:#555;
+    color:#FFF;
+    font-size:15px;
+
+    .h1 {
+        margin:auto;
+        text-align:center;
+        margin:20px;
+    }
+
+    a {
+        display:block;
+        margin:auto;
+        margin-top:35px;
+        text-align:center;
+        text-decoration:none;
+        color:#FFF;
+        font-weight:bold;
+        font-size:19px;
+    }
+}
+
+.area {
+    width:400px;
+    border:1px solid #FFF;
+    border-radius:7px;
+    padding:20px;
+    margin:auto;
+    text-align:center;
+}

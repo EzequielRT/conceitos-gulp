@@ -14,19 +14,19 @@ function base() {
 function javascript() {
     return src('src/js/*.js')
     .pipe(babel({
-        presets:[ '@babel-env' ]
+        presets:[ '@babel/env' ]
     }))
     .pipe(minifyJS())
-    .pipe(rename({extname:'min.js'}))
+    .pipe(rename({extname:'.min.js'}))
     .pipe(dest('public/assets/js'));
 }
 
 function css() {
-    return src('src/css/*.css')
+    return src('src/css/*.scss')
     .pipe(cssimport())
     .pipe(sass())
     .pipe(minifyCSS())
-    .pipe(rename({extname:'min.css'}))
+    .pipe(rename({extname:'.min.css'}))
     .pipe(dest('public/assets/css'));
 }
 
